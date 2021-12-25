@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="helloworld" class="t_tok01.HelloWorld">
+		<property name="hello" value="hello"></property>
+	</bean>
+	
+	<bean id="battery1" class="t_tok02.Battery">
+		<property name="name" value="스프링으로 산 배터리-세터"/>	
+	</bean>
+	<bean id="battery2" class="t_tok02.Battery">
+		 <constructor-arg name="name" value="스프링으로 산 배터리 생성자"/>
+	</bean>
+	
+	<bean id="blackphone" class="t_tok02.BlackPhone">
+		<constructor-arg ref="battery2"/>
+	</bean>
+</beans>
