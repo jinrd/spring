@@ -21,9 +21,9 @@
 	</bean>
 	
 	<!-- 핵심 로직인 ItemTarget을 bean으로 설정 -->
-	<bean id="itemtarget" class="t_tok03.ItemTarget">
-		
-	</bean>
+	<bean id="itemtarget" class="t_tok03.ItemTarget">	</bean>
+	
+	<bean id="goodTarget" class="t_tok03.GoodTarget"></bean>
 	
 	<!-- 관심로직인 LoggingAdvice를 bean으로 설정 -->
 	<bean id="loggingAdvice" class="t_tok03.LoggingAdvice"></bean>
@@ -32,6 +32,15 @@
 		<aop:aspect ref="loggingAdvice">
 		<!-- 실행할 때 itemtarget 의 모든 메서드를 실행할때 beforeAdvice 를 실행해라-->
 			 <aop:before method="beforeAdvice" pointcut="execution(* t_tok03.ItemTarget.*())"/>
+			 
+			 <!-- ItemTarget의 buyitem이 실행되면 -->
+ 			 <aop:before method="beforeBuyConfirm" pointcut="execution(* t_tok03.ItemTarget.buyItem())"/>
+ 			 
+ 			 <!-- pointCut 중요 -->
+ 			 <aop:after method="afterAdvice" pointcut="execution(* t_tok03.*Target.buy*(..))"/>
+ 			 
+ 			 <!-- joinPoint는 around 에서만 사용가능하다 -->
+ 			 <aop:around method="aroundAdvice" pointcut="execution(* t_tok03.*Target.buy*(..))"/>
 		</aop:aspect>
 	</aop:config>
 </beans>
