@@ -2,8 +2,12 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<context:annotation-config/>
 
 	<bean id="helloworld" class="t_tok01.HelloWorld">
 		<property name="hello" value="hello"></property>
@@ -43,4 +47,12 @@
  			 <aop:around method="aroundAdvice" pointcut="execution(* t_tok03.*Target.buy*(..))"/>
 		</aop:aspect>
 	</aop:config>
+	
+	<bean id="student" class="t_tok04.Student" init-method="init" destroy-method="cleanUp">
+		<property name="name" value="자바 빈즈"></property>
+		<!-- <property name="name" value="스프링"></property> -->
+	</bean>
+	
+	
+	
 </beans>
