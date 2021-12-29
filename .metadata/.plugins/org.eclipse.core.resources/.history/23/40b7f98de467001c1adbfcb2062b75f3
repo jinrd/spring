@@ -1,0 +1,43 @@
+package t_tok04;
+
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
+
+public class Student implements InitializingBean, DisposableBean{
+	
+	private String name;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	// 초기화 메서드
+	public void init() {
+		
+	}
+	
+	// 소멸 메서드
+	public void cleanUp() {
+		
+	}
+	
+	
+	// disposableBean
+	@Override
+	public void destroy() throws Exception {
+		System.out.println("Bean이 소멸 될때 호출 된다. 자원을 반납할 부분이 잇다면 여기서 진행합니다.");
+	}
+
+	// InitializingBean
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		System.out.println("Bean이 생성 될때 호출 됩니다. Bean 생성과 DI 이후에 초기화 부분이 있다면 여기서 진행한다.");
+	}
+	
+	
+	
+}

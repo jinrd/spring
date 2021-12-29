@@ -1,0 +1,8 @@
+package t_tok03;
+
+// Advice 부가기능을 담당하는 역할, 로깅을 담당할 클래스
+public class LoggingAdvice {
+	public void beforeAdvice() {
+		System.out.println("#### 메소드 실행전에 로그를 출력합니다.");
+	}
+}

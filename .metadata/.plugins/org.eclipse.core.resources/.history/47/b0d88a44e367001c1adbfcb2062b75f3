@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<bean id="helloworld" class="t_tok01.HelloWorld">
+		<property name="hello" value="hello"></property>
+	</bean>
+	
+	<bean id="battery1" class="t_tok02.Battery">
+		<property name="name" value="스프링으로 산 배터리-세터"/>	
+	</bean>
+	<bean id="battery2" class="t_tok02.Battery">
+		 <constructor-arg name="name" value="스프링으로 산 배터리 생성자"/>
+	</bean>
+	
+	<bean id="blackphone" class="t_tok02.BlackPhone">
+		<constructor-arg ref="battery2"/>
+	</bean>
+	
+	<!-- 핵심 로직인 ItemTarget을 bean으로 설정 -->
+	<bean id="itemtarget" class="t_tok03.ItemTarget">	</bean>
+	
+	<bean id="goodTarget" class="t_tok03.GoodTarget"></bean>
+	
+	<!-- 관심로직인 LoggingAdvice를 bean으로 설정 -->
+	<bean id="loggingAdvice" class="t_tok03.LoggingAdvice"></bean>
+	
+	<aop:config>
+		<aop:aspect ref="loggingAdvice">
+		<!-- 실행할 때 itemtarget 의 모든 메서드를 실행할때 beforeAdvice 를 실행해라-->
+			 <aop:before method="beforeAdvice" pointcut="execution(* t_tok03.ItemTarget.*())"/>
+			 
+			 <!-- ItemTarget의 buyitem이 실행되면 -->
+ 			 <aop:before method="beforeBuyConfirm" pointcut="execution(* t_tok03.ItemTarget.buyItem())"/>
+ 			 
+ 			 <!-- pointCut 중요 -->
+ 			 <aop:after method="afterAdvice" pointcut="execution(* t_tok03.*Target.buy*(..))"/>
+ 			 
+ 			 <!-- joinPoint는 around 에서만 사용가능하다 -->
+ 			 <aop:around method="aroundAdvice" pointcut="execution(* t_tok03.*Target.buy*(..))"/>
+		</aop:aspect>
+	</aop:config>
+	
+	<bean id="student" class="t_tok04.Student">
+	
+</bean>
+	
+	
+	
+</beans>

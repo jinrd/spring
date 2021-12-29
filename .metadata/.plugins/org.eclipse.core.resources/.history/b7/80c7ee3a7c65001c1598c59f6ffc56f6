@@ -1,0 +1,10 @@
+package t_tok02;
+
+public class BlackPhone implements Phone{
+	Battery battery;
+	@Override
+	public void show() {
+		// TODO Auto-generated method stub
+		
+	}
+}

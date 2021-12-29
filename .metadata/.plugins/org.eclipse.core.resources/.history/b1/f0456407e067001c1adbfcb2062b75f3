@@ -1,0 +1,24 @@
+package t_tok03;
+
+// Advice 부가기능을 담당하는 역할, 로깅을 담당할 클래스
+public class LoggingAdvice {
+	public void beforeAdvice() {
+		System.out.println("#### 메소드 실행전에 로그를 출력합니다.");
+	}
+	public void beforeBuyConfirm() {
+		System.out.println("@@@@ 구매 전 아이템 확인은 필수입니다.@@@@");
+	}
+	
+	
+	public void afterAdvice() {
+		System.out.println("$$$$$$$$$ 아이템을 구매해주셔서 감사합니다.$$$$$$$$$$$");
+	}
+	
+	public void aroundAdvice() {
+		// 추가로직
+		
+		// 메소드 실행
+		
+		// 추가로직
+	}
+}

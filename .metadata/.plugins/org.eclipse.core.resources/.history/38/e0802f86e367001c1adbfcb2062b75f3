@@ -1,0 +1,16 @@
+package t_tok04;
+
+import org.springframework.context.support.GenericApplicationContext;
+
+public class Main {
+	public static void main(String[] args) {
+		// 스프링 컨테이너 생성
+		GenericApplicationContext context = new GenericApplicationContext();
+		
+		// 스프링 컨테이너 설정
+		
+		// 스프링 컨테이너 사용
+		
+		// 스프링 컨테이너 종료
+	}
+}

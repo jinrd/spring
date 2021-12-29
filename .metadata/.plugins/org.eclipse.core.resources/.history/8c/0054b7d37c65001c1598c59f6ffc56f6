@@ -1,0 +1,17 @@
+package t_tok02;
+
+public class Main {
+	public static void main(String[] args) {
+
+		// 베터리 일체형
+		WhitePhone wp = new WhitePhone();
+		wp.show();
+		
+		// 베터리 분리형
+		BlackPhone bp = new BlackPhone();
+		bp.show();
+		
+		// 새로산 베터리
+		Battery newBattery = new Battery("새로 산 배터리");
+	}
+}

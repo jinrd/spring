@@ -1,0 +1,10 @@
+package t_tok02;
+
+public class Main {
+	public static void main(String[] args) {
+
+		// 베터리 일체형
+		WhitePhone wp = new WhitePhone();
+		wp.show();
+	}
+}

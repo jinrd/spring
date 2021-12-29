@@ -1,0 +1,5 @@
+package t_tok02.copy;
+
+public interface Phone {
+	public void show();
+}

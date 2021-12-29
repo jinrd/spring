@@ -1,0 +1,7 @@
+package t_tok02;
+
+public class Main {
+	// 베터리 일체형
+	WhitePhone wp = new WhitePhone();
+	wp.show();
+}

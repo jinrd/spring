@@ -1,0 +1,19 @@
+package t_tok01;
+
+import java.nio.ByteBuffer;
+
+import org.apache.tomcat.util.net.ApplicationBufferHandler;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Main {
+	public static void main2(String[] args) {
+		HelloWorld h = new HelloWorld();
+		h.setHello("asdf");
+		System.out.println(h.getHello());
+	}
+	
+	public static void main(String[] args) {
+		ApplicationBufferHandler context = new ClassPathXmlApplicationContext("beans.xml");
+			
+	}
+}
